@@ -1,0 +1,19 @@
+import kotlin.Int;
+
+CREATE TABLE teamMemberEntity (
+    pokemonId INTEGER AS Int NOT NULL PRIMARY KEY,
+    addedAtEpochMillis INTEGER NOT NULL
+);
+
+observeTeam:
+SELECT p.id, p.name, p.imageUrl, d.types, t.addedAtEpochMillis
+FROM teamMemberEntity t
+INNER JOIN pokemonEntity p ON p.id = t.pokemonId
+LEFT JOIN pokemonDetailEntity d ON d.id = t.pokemonId
+ORDER BY t.addedAtEpochMillis ASC;
+
+insertMember:
+INSERT OR IGNORE INTO teamMemberEntity VALUES ?;
+
+deleteMember:
+DELETE FROM teamMemberEntity WHERE pokemonId = ?;

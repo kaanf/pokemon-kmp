@@ -1,0 +1,73 @@
+<resources>
+    <string name="app_name">Pokemon</string>
+
+    <!-- Top bar -->
+    <string name="top_bar_team_count">Team %1$d/6</string>
+
+    <!-- Bottom navigation -->
+    <string name="tab_pokedex">Pokédex</string>
+    <string name="tab_team">Team</string>
+
+    <!-- Settings -->
+    <string name="settings_title">Settings</string>
+    <string name="settings_unit">Unit</string>
+    <string name="settings_time_24_hour">24-Hour Time</string>
+    <string name="settings_mode">Mode</string>
+    <string name="settings_about">About</string>
+
+    <!-- Unit toggle -->
+    <string name="unit_metric">Metric</string>
+    <string name="unit_imperial">Imperial</string>
+
+    <!-- Theme mode -->
+    <string name="mode_system">System</string>
+    <string name="mode_light">Light</string>
+    <string name="mode_dark">Dark</string>
+
+    <!-- About dialog -->
+    <string name="about_version">Pokemon v1.0</string>
+
+    <!-- Pokédex toasts -->
+    <string name="toast_added_to_team">Added to your team</string>
+    <string name="toast_removed_from_team">Removed from your team</string>
+    <string name="toast_add_to_team_failed">Couldn\'t add to team</string>
+    <string name="toast_remove_from_team_failed">Couldn\'t remove from team</string>
+
+    <!-- Team full sheet -->
+    <string name="team_full_title">Team is full!</string>
+    <string name="team_full_message_prefix">Your team can only have&#160;</string>
+    <string name="team_full_message_highlight">6 Pokemons.</string>
+    <string name="team_full_message_suffix">\nPlease, remove a member from your team\nbefore adding a new one.</string>
+    <string name="action_close">Close</string>
+
+    <!-- Team screen -->
+    <string name="team_empty_message">Add more pokemons\nto your team</string>
+    <string name="team_member_added">Added %1$s</string>
+
+    <!-- Detail -->
+    <string name="detail_weight">Weight</string>
+    <string name="detail_height">Height</string>
+    <string name="detail_moves">Moves</string>
+    <string name="detail_base_stats">Base Stats</string>
+
+    <!-- Error states -->
+    <string name="error_generic_title">Something went wrong</string>
+    <string name="error_generic_message">We couldn\'t load this right now. Please try again.</string>
+    <string name="error_no_internet_title">No connection.</string>
+    <string name="error_no_internet_message">Looks like your Pokédex can\'t reach the network.</string>
+    <string name="action_retry">Try Again</string>
+    <string name="snackbar_paging_error">Couldn\'t load more Pokémon</string>
+
+    <!-- Content descriptions -->
+    <string name="cd_icon">icon_*</string>
+    <string name="cd_back">icon_back</string>
+    <string name="cd_settings">icon_settings</string>
+    <string name="cd_close">close</string>
+    <string name="cd_pokemon_image_grid">pokemon_image_grid_card</string>
+    <string name="cd_pokemon_image_team">pokemon_image_team_card</string>
+    <string name="cd_pokemon_image_detail">pokemon_image_detail</string>
+    <string name="cd_add_to_team">pokeball_icon_add_to_team</string>
+    <string name="cd_team_full_image">team_full_pokedex_image</string>
+    <string name="cd_add_pokemon">icon_add_pokemon</string>
+    <string name="cd_toggle_shiny">toggle_shiny</string>
+</resources>

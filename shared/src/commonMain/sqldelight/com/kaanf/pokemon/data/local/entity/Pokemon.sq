@@ -1,0 +1,16 @@
+import kotlin.Int;
+
+CREATE TABLE pokemonEntity (
+    id INTEGER AS Int NOT NULL PRIMARY KEY,
+    name TEXT NOT NULL,
+    imageUrl TEXT NOT NULL
+);
+
+observeAll:
+SELECT * FROM pokemonEntity ORDER BY id ASC;
+
+count:
+SELECT COUNT(*) FROM pokemonEntity;
+
+upsert:
+INSERT OR REPLACE INTO pokemonEntity VALUES ?;

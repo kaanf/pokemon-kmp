@@ -1,0 +1,42 @@
+{
+  "originHash" : "fed50982030cd50b470380a1c9e353ca17fd678768d09e48ee33b5d749cbd4eb",
+  "pins" : [
+    {
+      "identity" : "kingfisher",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/onevcat/Kingfisher.git",
+      "state" : {
+        "revision" : "ac632bd26a1c00f139ff62fd01806f21cf67325e",
+        "version" : "8.10.0"
+      }
+    },
+    {
+      "identity" : "kmp-nativecoroutines",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/rickclephas/KMP-NativeCoroutines.git",
+      "state" : {
+        "revision" : "b2a582b9cb160bc0ed9c53364229eee8973070a1",
+        "version" : "1.0.4"
+      }
+    },
+    {
+      "identity" : "kmp-observableviewmodel",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/rickclephas/KMP-ObservableViewModel.git",
+      "state" : {
+        "revision" : "efefc9f2192298a89c0b1061fb7d5d955176b507",
+        "version" : "1.0.4"
+      }
+    },
+    {
+      "identity" : "rxswift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/ReactiveX/RxSwift.git",
+      "state" : {
+        "revision" : "132aea4f236ccadc51590b38af0357a331d51fa2",
+        "version" : "6.10.2"
+      }
+    }
+  ],
+  "version" : 3
+}

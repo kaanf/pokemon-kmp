@@ -1,0 +1,22 @@
+import com.kaanf.pokemon.data.local.entity.AbilityField;
+import com.kaanf.pokemon.data.local.entity.StatField;
+import kotlin.Int;
+import kotlin.String;
+import kotlin.collections.List;
+
+CREATE TABLE pokemonDetailEntity (
+    id INTEGER AS Int NOT NULL PRIMARY KEY,
+    name TEXT NOT NULL,
+    imageUrl TEXT NOT NULL,
+    heightDecimeters INTEGER AS Int NOT NULL,
+    weightHectograms INTEGER AS Int NOT NULL,
+    types TEXT AS List<String> NOT NULL,
+    stats TEXT AS List<StatField> NOT NULL,
+    abilities TEXT AS List<AbilityField> NOT NULL
+);
+
+observeDetail:
+SELECT * FROM pokemonDetailEntity WHERE id = ?;
+
+upsertDetail:
+INSERT OR REPLACE INTO pokemonDetailEntity VALUES ?;
