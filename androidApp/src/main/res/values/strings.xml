@@ -25,7 +25,10 @@
     <string name="mode_dark">Dark</string>
 
     <!-- About dialog -->
-    <string name="about_version">Pokemon v1.0</string>
+    <string name="about_message">Crafted with STRV\'s favorite ingredient: freedom</string>
+    <string name="about_message_deadline">(and a deadline).</string>
+    <string name="about_thanks">Thanks for catching this one. — Kaan</string>
+    <string name="about_version">Version %1$s</string>
 
     <!-- Pokédex toasts -->
     <string name="toast_added_to_team">Added to your team</string>

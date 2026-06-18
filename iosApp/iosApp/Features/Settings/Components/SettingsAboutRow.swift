@@ -1,3 +1,4 @@
+import Kingfisher
 import SwiftUI
 
 struct SettingsAboutRow: View {
@@ -26,6 +27,9 @@ private struct AboutDialog: View {
 
     @State private var appeared = false
 
+    private static let avatarURL = URL(string: "https://avatars.githubusercontent.com/u/62348803?v=4")
+    private static let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? ""
+
     var body: some View {
         ZStack {
             Color.black.opacity(appeared ? 0.4 : 0)
@@ -46,13 +50,30 @@ private struct AboutDialog: View {
                 .frame(maxWidth: .infinity)
 
                 VStack(spacing: AppTheme.Spacing.lg) {
-                    Image("ic_pokeball_dialog")
+                    KFImage(Self.avatarURL)
+                        .placeholder { ProgressView() }
                         .resizable()
-                        .scaledToFit()
+                        .scaledToFill()
                         .frame(width: 72, height: 72)
+                        .clipShape(Circle())
 
-                    Text("settings.about.message")
-                        .appFont(AppTheme.Typography.titleMedium)
+                    (
+                        Text("settings.about.message")
+                            .foregroundStyle(AppTheme.Colors.contentTertiary)
+                        + Text(verbatim: " ")
+                        + Text("settings.about.message_deadline")
+                            .foregroundStyle(AppTheme.Colors.contentTertiary.opacity(0.6))
+                    )
+                    .font(AppTheme.Typography.bodyMedium.font)
+                    .multilineTextAlignment(.center)
+
+                    Text("settings.about.thanks")
+                        .appFont(AppTheme.Typography.bodyMedium)
+                        .foregroundStyle(AppTheme.Colors.contentTertiary.opacity(0.6))
+                        .multilineTextAlignment(.center)
+
+                    Text(verbatim: "Version \(Self.appVersion)")
+                        .appFont(AppTheme.Typography.bodyMedium)
                         .foregroundStyle(AppTheme.Colors.contentTertiary)
                 }
                 .frame(maxWidth: .infinity)
