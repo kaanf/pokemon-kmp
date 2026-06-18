@@ -70,7 +70,10 @@ private struct AboutDialog: View {
     }
 
     private func dismiss() {
-        withAnimation(.easeIn(duration: 0.15)) { appeared = false }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.15, execute: onDismiss)
+        withAnimation(.easeIn(duration: 0.15)) {
+            appeared = false
+        } completion: {
+            onDismiss()
+        }
     }
 }
