@@ -54,6 +54,7 @@ struct SettingsSheet: View {
         .presentationDragIndicator(.visible)
         .presentationCornerRadius(32)
         .presentationBackground(AppTheme.Colors.background)
+        .preferredColorScheme(state.settings.themeMode.colorScheme)
     }
 }
 
@@ -71,6 +72,7 @@ struct SettingsDialog: View {
                 onClose: dismiss
             )
         }
+        .preferredColorScheme(state.settings.themeMode.colorScheme)
     }
 }
 

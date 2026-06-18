@@ -23,12 +23,12 @@ private struct AdaptiveModal<SheetBody: View, DialogBody: View>: ViewModifier {
         let isCompact = verticalSizeClass.isCompact
         
         content
-            .background { sheetHeightProbe }
+            .background { if isPresented { sheetHeightProbe } }
             .background {
                 Color.clear
                     .sheet(isPresented: branch(whenActive: !isCompact)) {
                         sheet()
-                            .presentationDetents([.height(sheetHeight)])
+                            .presentationDetents(sheetHeight == 0 ? [.large] : [.height(sheetHeight)])
                             .id(sheetHeight)
                     }
             }
