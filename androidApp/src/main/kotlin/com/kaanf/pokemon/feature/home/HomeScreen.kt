@@ -16,7 +16,7 @@ import androidx.compose.material3.NavigationRailItem
 import androidx.compose.material3.NavigationRailItemDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -45,7 +45,7 @@ fun HomeScreen(
 ) {
     val pagerState = rememberPagerState(initialPage = 0) { BottomTab.entries.size }
     val coroutineScope = rememberCoroutineScope()
-    val teamCount by homeViewModel.teamCount.collectAsState()
+    val teamCount by homeViewModel.teamCount.collectAsStateWithLifecycle()
     var showSettings by remember { mutableStateOf(false) }
 
     val selectedTab = BottomTab.entries[pagerState.currentPage]

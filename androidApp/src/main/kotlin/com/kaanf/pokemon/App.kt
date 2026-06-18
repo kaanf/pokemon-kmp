@@ -14,7 +14,6 @@ import androidx.compose.material3.SnackbarHost
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.DisposableEffect
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -22,6 +21,7 @@ import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalView
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.kaanf.pokemon.designsystem.PokemonTheme
 import com.kaanf.pokemon.designsystem.snackbar.LocalSnackbarController
 import com.kaanf.pokemon.designsystem.snackbar.PokemonSnackbar
@@ -35,7 +35,7 @@ import org.koin.androidx.compose.koinViewModel
 fun App(
     settingsViewModel: SettingsViewModel = koinViewModel(),
 ) {
-    val settingsState by settingsViewModel.state.collectAsState()
+    val settingsState by settingsViewModel.state.collectAsStateWithLifecycle()
     val darkTheme = when (settingsState.settings.themeMode) {
         ThemeMode.SYSTEM -> isSystemInDarkTheme()
         ThemeMode.LIGHT -> false
