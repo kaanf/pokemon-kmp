@@ -48,7 +48,9 @@ jobs:
           } > keystore.properties
 
       - name: Build signed release APK
-        run: ./gradlew :androidApp:assembleRelease --no-daemon
+        run: |
+          chmod +x ./gradlew
+          ./gradlew :androidApp:assembleRelease --no-daemon
 
       - name: Resolve tag
         id: tag
