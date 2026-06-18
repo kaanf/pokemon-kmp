@@ -39,8 +39,8 @@ import org.koin.androidx.compose.koinViewModel
 
 @Composable
 fun HomeScreen(
-    modifier: Modifier = Modifier,
     onPokemonClick: (Int) -> Unit,
+    modifier: Modifier = Modifier,
     homeViewModel: HomeViewModel = koinViewModel(),
 ) {
     val pagerState = rememberPagerState(initialPage = 0) { BottomTab.entries.size }

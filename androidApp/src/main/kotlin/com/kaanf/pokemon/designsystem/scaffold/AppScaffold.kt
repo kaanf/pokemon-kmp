@@ -13,6 +13,7 @@ fun AppScaffold(
     modifier: Modifier = Modifier,
     topBar: @Composable () -> Unit = {},
     bottomBar: @Composable () -> Unit = {},
+    contentWindowInsets: WindowInsets = WindowInsets.safeDrawing,
     content: @Composable (PaddingValues) -> Unit,
 ) {
     Scaffold(
@@ -20,7 +21,7 @@ fun AppScaffold(
         topBar = topBar,
         bottomBar = bottomBar,
         containerColor = PokemonTheme.extendedColors.surfaceSecondary,
-        contentWindowInsets = WindowInsets.safeDrawing,
+        contentWindowInsets = contentWindowInsets,
     ) { innerPadding ->
         content(innerPadding)
     }

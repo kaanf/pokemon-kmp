@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyGridState
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.lazy.grid.rememberLazyGridState
@@ -96,7 +97,9 @@ private fun PokedexScreen(
         error == null &&
         !state.endReached
 
-    val columns = if (isLandscape()) 5 else 2
+    val isLandscape = isLandscape()
+    val columns = if (isLandscape) 5 else 2
+    val gridState = rememberLazyGridState()
 
     when {
         error != null && pokemon.isNullOrEmpty() -> ErrorState(
@@ -119,6 +122,8 @@ private fun PokedexScreen(
                     onAction = onAction,
                     onPokemonClick = onPokemonClick,
                     columns = columns,
+                    isLandscape = isLandscape,
+                    gridState = gridState,
                 )
             }
         }
@@ -131,9 +136,10 @@ private fun PokemonGrid(
     onAction: (PokedexAction) -> Unit,
     onPokemonClick: (Int) -> Unit,
     columns: Int,
+    isLandscape: Boolean,
+    gridState: LazyGridState,
     modifier: Modifier = Modifier,
 ) {
-    val gridState = rememberLazyGridState()
     // Trigger the next page two rows before the end, matching iOS.
     val prefetchDistance = columns * 2
     val shouldLoadMore by remember(prefetchDistance) {
@@ -170,6 +176,7 @@ private fun PokemonGrid(
             PokemonGridCard(
                 pokemon = pokemon,
                 isInTeam = pokemon.id in state.teamMemberIds,
+                isLandscape = isLandscape,
                 onClick = { onPokemonClick(pokemon.id) },
                 onAddToTeam = { onAction(PokedexAction.OnAddToTeam(pokemon)) },
                 modifier = Modifier.animateItem(),

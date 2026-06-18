@@ -35,11 +35,11 @@ import com.kaanf.pokemon.designsystem.PokemonTheme
 
 @Composable
 internal fun DetailArtwork(
-    modifier: Modifier = Modifier,
     imageUrl: String,
     shinyImageUrl: String,
     backgroundColor: Color,
     topPadding: Dp,
+    modifier: Modifier = Modifier,
 ) {
     var isShiny by rememberSaveable { mutableStateOf(false) }
 

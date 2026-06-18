@@ -69,10 +69,10 @@ fun TeamScreenRoot(
 
 @Composable
 private fun TeamScreen(
-    modifier: Modifier = Modifier,
     state: TeamState,
     onAction: (TeamAction) -> Unit,
     onPokemonClick: (Int) -> Unit,
+    modifier: Modifier = Modifier,
 ) {
     if (state.members.isEmpty()) {
         Box(

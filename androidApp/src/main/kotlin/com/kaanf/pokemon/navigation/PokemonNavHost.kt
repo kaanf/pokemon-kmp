@@ -31,8 +31,6 @@ private fun AnimatedContentTransitionScope<NavBackStackEntry>.slideOutTo(
 fun PokemonNavHost(modifier: Modifier = Modifier) {
     val navController = rememberNavController()
 
-    // Landscape is wide but short, so detail slides up from the bottom there;
-    // portrait keeps the standard horizontal slide.
     val landscape = isLandscape()
     val forward = if (landscape) SlideDirection.Up else SlideDirection.Start
     val backward = if (landscape) SlideDirection.Down else SlideDirection.End

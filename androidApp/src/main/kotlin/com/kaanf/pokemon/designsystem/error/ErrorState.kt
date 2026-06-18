@@ -10,7 +10,9 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -22,10 +24,12 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.PreviewLightDark
+import androidx.compose.ui.tooling.preview.PreviewScreenSizes
 import androidx.compose.ui.unit.dp
 import com.kaanf.pokemon.R
 import com.kaanf.pokemon.core.common.DataError
 import com.kaanf.pokemon.designsystem.PokemonTheme
+import com.kaanf.pokemon.designsystem.adaptive.isLandscape
 
 @Composable
 fun ErrorState(
@@ -34,10 +38,12 @@ fun ErrorState(
     modifier: Modifier = Modifier,
 ) {
     val isOffline = error == DataError.Remote.NO_INTERNET
+    val isLandscape = isLandscape()
 
     Column(
         modifier = modifier
             .fillMaxSize()
+            .verticalScroll(rememberScrollState())
             .padding(24.dp),
         verticalArrangement = Arrangement.spacedBy(6.dp, Alignment.CenterVertically),
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -45,14 +51,16 @@ fun ErrorState(
         Image(
             painter = painterResource(R.drawable.img_sad_cubone),
             contentDescription = null,
-            modifier = Modifier.height(140.dp),
+            modifier = Modifier.height(
+                if (!isLandscape) 100.dp else 78.dp
+            ),
         )
 
         Text(
             text = stringResource(
                 if (isOffline) R.string.error_no_internet_title else R.string.error_generic_title,
             ),
-            style = MaterialTheme.typography.headlineMedium,
+            style = MaterialTheme.typography.headlineSmall,
             color = PokemonTheme.extendedColors.textPrimary,
             textAlign = TextAlign.Center,
         )
@@ -60,7 +68,7 @@ fun ErrorState(
             text = stringResource(
                 if (isOffline) R.string.error_no_internet_message else R.string.error_generic_message,
             ),
-            style = MaterialTheme.typography.titleMedium,
+            style = MaterialTheme.typography.bodyMedium,
             color = PokemonTheme.extendedColors.textTertiary,
             textAlign = TextAlign.Center,
         )
@@ -99,6 +107,7 @@ private fun RetryButton(
 }
 
 @PreviewLightDark
+@PreviewScreenSizes
 @Composable
 private fun ErrorStatePreview() {
     PokemonTheme {

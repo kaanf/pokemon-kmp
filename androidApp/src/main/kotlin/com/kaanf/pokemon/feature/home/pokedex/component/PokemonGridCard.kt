@@ -26,7 +26,6 @@ import androidx.compose.ui.unit.sp
 import coil3.compose.AsyncImage
 import com.kaanf.pokemon.R
 import com.kaanf.pokemon.designsystem.PokemonTheme
-import com.kaanf.pokemon.designsystem.adaptive.isLandscape
 import com.kaanf.pokemon.domain.model.Pokemon
 import com.kaanf.pokemon.presentation.util.formatPokedexNumber
 import com.kaanf.pokemon.presentation.util.toFormattedName
@@ -35,12 +34,11 @@ import com.kaanf.pokemon.presentation.util.toFormattedName
 fun PokemonGridCard(
     pokemon: Pokemon,
     isInTeam: Boolean,
+    isLandscape: Boolean,
     onClick: () -> Unit,
     onAddToTeam: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    val isLandscape = isLandscape()
-
     Column(
         modifier = modifier
             .fillMaxWidth()
